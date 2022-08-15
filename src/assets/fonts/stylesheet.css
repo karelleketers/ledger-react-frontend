@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'nunitoblack';
+    src: url('./nunito-black-webfont.woff2') format('woff2'),
+         url('./nunito-black-webfont.woff') format('woff');
+    font-weight: bolder;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'nunitobold';
+    src: url('./nunito-bold-webfont.woff2') format('woff2'),
+         url('./nunito-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'nunitolight';
+    src: url('./nunito-light-webfont.woff2') format('woff2'),
+         url('./nunito-light-webfont.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'nunitomedium';
+    src: url('./nunito-medium-webfont.woff2') format('woff2'),
+         url('./nunito-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'nunitoregular';
+    src: url('./nunito-regular-webfont.woff2') format('woff2'),
+         url('./nunito-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'leaguespartan';
+    src: url('./leaguespartan-bold-webfont.woff2') format('woff2'),
+         url('./leaguespartan-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+

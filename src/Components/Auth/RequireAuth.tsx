@@ -7,9 +7,12 @@ import { useAuth } from '../Hooks/UseAuth'
 
 export const RequireAuth = ({children} : { children: JSX.Element }) => {
     //seperate authorised and onboarding from jwt token
-    let { authorised, onboarding } = useAuth();
+    let { authorised, onboarding, isAdmin } = useAuth();
     let location = useLocation();
     //return to login page if not authorised
+    if (isAdmin) return (
+        <Navigate to="/admin" />
+    )
     if(!authorised) return (
         <Navigate to="/login" state={{ from: location}} />
     )

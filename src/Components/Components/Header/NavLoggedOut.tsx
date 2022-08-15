@@ -1,10 +1,6 @@
 import { NavLink  } from 'react-router-dom'
 
-interface Props {
-    
-}
-
-export const NavLoggedOut = (props: Props) => {
+export const NavLoggedOut = () => {
     return (
     <nav>
         <ul className="flex flex-wrap w-4/5 justify-between m-auto pt-4 mb-12">

@@ -1,8 +1,12 @@
-export { Login } from "./Login";
+export { LoginPage } from "./Login";
 export { RegisterPage } from "./RegisterPage";
 export { LandingPage } from "./LandingPage";
-export { DashboardPage } from "./Account/Dashboard";
+export { DashboardPage } from "./Account/Dashboard/Dashboard";
 export { ProfilePage } from "./Account/Profile";
+export { LoansPage } from "./Account/LoansPage";
+export { BillsPage } from "./Account/BillsPage";
+export { CategoriesPage } from "./Account/CategoriesPage";
+export { EntriesPage } from "./Account/EntriesPage";
 export { AdminPage } from "./Admin/AdminPage";
 export { PageNotFound } from "./PageNotFound";
 export { SavingsPage } from "./Account/SavingsPage";

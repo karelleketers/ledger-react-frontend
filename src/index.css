@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('./assets/fonts/stylesheet.css');
+
+
+@media screen and (min-width: 1098px) {
+    .active.navin::after {
+        content: "";
+        position:absolute;
+        top:-40px;
+        right:0;
+        height:40px;
+        width: 40px;
+        border-bottom-right-radius: 50%;
+        background:#00562F; 
+        box-shadow: 0 20px 0 0 #2FAC66;
+        z-index: 0;
+    }
+    
+    .active.navin::before {
+        content: "";
+        position:absolute;
+        bottom: -40px;
+        right:0;
+        height:40px;
+        width: 40px;
+        border-top-right-radius: 50%;
+        background:#00562F;
+        box-shadow: 0 -20px 0 0 #2FAC66;
+        z-index: 0;
+    }
+    
+    .active.navin {
+        color: #00562F;
+        background: #2FAC66;
+        width: calc(100% + 1rem);
+        margin-left: -1rem;
+        padding-left: 1rem;
+        border-top-left-radius: 9999px;
+        border-bottom-left-radius: 9999px;
+    }
+
+    .active.navin path {
+        fill: #f8fff8;
+    }
+
+  }
+
+@media screen and (max-width: 1097px) {
+    .active.navin path {
+        fill: #89E798;
+    }
+}
+
+path {
+    fill: inherit;
+}

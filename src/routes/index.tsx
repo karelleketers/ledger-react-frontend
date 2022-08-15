@@ -1,0 +1,12 @@
+export const ONBOARDING = '/onboarding';
+export const LOGIN = '/login';
+export const REGISTER = '/register';
+export const PROFILE = '/profile';
+export const ACCOUNT = '/account';
+export const ENTRIES = '/entries';
+export const BILLS = '/bills';
+export const CATEGORIES = '/categories';
+export const LOANS = '/loans';
+export const SAVINGS = '/savings';
+export const ADMIN = '/admin';
+export const FOUROHFOUR = '404';

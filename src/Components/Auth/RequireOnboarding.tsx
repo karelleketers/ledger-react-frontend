@@ -1,4 +1,3 @@
-import { useQuery } from '@apollo/client';
 import { Navigate, useLocation } from 'react-router'
 import { useAuth } from '../Hooks/UseAuth'
 

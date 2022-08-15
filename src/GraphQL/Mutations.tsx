@@ -9,7 +9,7 @@ export const REGISTER_USER_MUTATION = gql `
         lastName: $lastName
   }) {
     id,
-    email
+    email,
   }
 }
 `
@@ -25,12 +25,33 @@ export const LOGIN_USER_MUTATION = gql `
 }
 `
 
+export const REMOVE_USER = gql `
+    mutation removeUser{
+      removeUser {
+        id
+      }
+}
+`
+
 export const LOAD_REFRESHTOKEN = gql `
     mutation refreshToken {
     refreshToken {
     token
   }
 }
+`
+
+export const EDIT_USER_DATA = gql`
+    mutation updateUserDetails($id: Int! $profileId: Int! $bank: String!) {
+        updateUserDetails(input: {
+          id: $id,
+          profileId: $profileId,
+          bank: $bank,
+        }) {
+          id,
+          bank
+        }
+    }
 `
 
 export const SKIP_QUESTIONNAIRE = gql`
@@ -51,7 +72,7 @@ export const SET_QUESTIONNAIRE = gql`
           balance: $balance,
           savings: $savings
         }) {
-          id,
+          id
         }
     }
 `
@@ -65,10 +86,13 @@ export const SET_PROFILE = gql`
           reminder: $reminder
         }) {
           id,
+          firstName,
+          lastName,
+          bank,
+          reminder
         }
     }
 `
-//change to float
 export const SET_ENTRY = gql`
     mutation createEntry($incoming: Boolean! $amount: Int! $category: String $description: String $type: String $categoryId: Int) {
         createEntry(input: {
@@ -80,6 +104,11 @@ export const SET_ENTRY = gql`
           categoryId: $categoryId,
         }) {
           id,
+          incoming,
+          amount,
+          category,
+          description,
+          type,
         }
     }
 `
@@ -95,6 +124,11 @@ export const EDIT_ENTRY = gql`
           type: $type,
         }) {
           id,
+          incoming,
+          amount,
+          category,
+          description,
+          type
         }
     }
 `
@@ -102,7 +136,7 @@ export const EDIT_ENTRY = gql`
 export const DELETE_ENTRY = gql`
     mutation removeEntry($id: Float!) {
       removeEntry(id: $id) {
-          id,
+          id
         }
     }
 `
@@ -118,6 +152,14 @@ export const SET_LOAN = gql`
           reason: $reason
         }) {
           id,
+          amount,
+          paid,
+          reason,
+          userloans {
+            owed,
+            inviteEmail,
+            inviteName
+          }
         }
     }
 `
@@ -129,6 +171,8 @@ export const SET_BILL = gql`
           name: $name,
         }) {
           id,
+          amount,
+          name
         }
     }
 `
@@ -142,6 +186,9 @@ export const EDIT_BILL = gql`
           paid: $paid
         }) {
           id,
+          amount,
+          name,
+          paid
         }
     }
 `
@@ -149,7 +196,7 @@ export const EDIT_BILL = gql`
 export const DELETE_BILL = gql`
     mutation removeBill($id: Float!) {
       removeBill(id: $id) {
-          id,
+          id
         }
     }
 `
@@ -165,6 +212,14 @@ export const EDIT_LOAN = gql`
           reason: $reason
         }) {
           id,
+          amount,
+          paid,
+          reason,
+          userloans {
+            owed,
+            inviteEmail,
+            inviteName
+          }
         }
     }
 `
@@ -188,6 +243,11 @@ export const EDIT_CATEGORY = gql`
           current: $current
         }) {
           id,
+          name,
+          total,
+          hidden,
+          categoryIconId,
+          current
         }
     }
 `
@@ -212,6 +272,11 @@ export const EDIT_SAVINGS = gql`
           type: $type
         }) {
           id,
+          name,
+          amount,
+          goal,
+          goal_date,
+          type
         }
     }
 `
@@ -235,14 +300,25 @@ export const SET_SAVINGS = gql`
           type: $type
         }) {
           id,
+          amount,
+          name,
+          goal,
+          goal_date,
+          type
         }
     }
 `
 
 export const SET_MONTHLY_SAVINGS = gql`
-    mutation updateMonthlySavings($monthly_savings: String!) {
-      updateMonthlySavings(monthly_savings: $monthly_savings) {
+    mutation updateMonthlySavings($id: Int! $monthly_savings: String!) {
+      updateMonthlySavings(input: {
+        id: $id,
+        monthly_savings: $monthly_savings
+        }) {
           id,
+          total,
+          unassigned,
+          monthly_savings
         }
     }
 `
@@ -254,6 +330,9 @@ export const ADJUST_SAVINGS_BALANCE = gql`
         incoming: $incoming,
       }) {
           id,
+          total,
+          unassigned,
+          monthly_savings
         }
     }
 `
@@ -266,6 +345,10 @@ export const ASSIGN_SAVINGS = gql`
         savingsId: $savingsId,
       }) {
           id,
+          total,
+          unassigned,
+          monthly_savings
+          
         }
     }
 `
@@ -280,6 +363,11 @@ export const SET_CATEGORY = gql`
           categoryIconId: $categoryIconId
         }) {
           id,
+          name,
+          total,
+          current,
+          hidden,
+          categoryIconId
         }
     }
 `

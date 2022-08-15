@@ -13,6 +13,21 @@ export const LOAD_DASHBOARD = gql`
     }
 `
 
+export const GET_USER = gql`
+    query getUser($email: String!) {
+        getUser(email: $email) {
+            id,
+            email,
+            profile {
+                id,
+                firstName,
+                lastName,
+                bank
+            }
+        }
+    }
+`
+
 export const LOAD_PROFILE = gql`
     query {
         getOwnProfile {
@@ -25,46 +40,70 @@ export const LOAD_PROFILE = gql`
     }
 `
 
-
 export const LOAD_ENTRIES = gql`
+    query getEntries ($limit: Int!, $offset: Int!){
+        getEntries (results: {limit: $limit, offset: $offset}) {
+            count,
+            items {
+                id,
+                incoming,
+                amount,
+                category,
+                description,
+                type,
+                updatedAt
+            }
+        }
+    }
+`
+
+
+export const LOAD_DASHBOARD_ENTRIES = gql`
     query {
-        getEntries {
+        getDashboardEntries {
             id,
             incoming,
             amount,
             category,
             description,
             type,
+            updatedAt,
         }
     }
 `
 
-
 export const LOAD_LOANS= gql`
-    query {
-        getLoans {
-            id,
-            owed
-            inviteName,
-            inviteEmail,
-            loan {
+    query getLoans ($limit: Int!, $offset: Int!) {
+        getLoans (results: {limit: $limit, offset: $offset}){
+            count,
+            items {
                 id,
-                amount,
-                paid,
-                reason
-            }
+                owed
+                inviteName,
+                inviteEmail,
+                loan {
+                    id,
+                    amount,
+                    paid,
+                    reason
+            }}
         }
     }
 `
 
 export const LOAD_BILLS = gql`
-    query {
-        getBills {
+    query getBills($limit: Int!, $offset: Int!){
+        getBills (results: {limit: $limit, offset: $offset}) {
+            count,
+            unpaidCount,
+            items {
             id,
             name,
             amount,
             paid,
             reminder,
+            updatedAt
+            }
         }
     }
 `
@@ -81,28 +120,32 @@ export const LOAD_SAVINGSBALANCE = gql`
 `
 
 export const LOAD_SAVINGS = gql`
-    query {
-        getAllSavings {
-            id,
-            name,
-            saved,
-            goal,
-            goal_date,
-            amount,
-            type
+    query getAllSavings($limit: Int!, $offset: Int!){
+        getAllSavings(results: {limit: $limit, offset: $offset}) {
+            count, 
+            items {
+                id,
+                name,
+                saved,
+                goal,
+                goal_date,
+                amount,
+                type
+            }
         }
     }
 `
 
-export const LOAD_CATEGORIES = gql`
+export const LOAD_CATEGORIES_SECTION = gql`
     query {
-        getCategories {
+        getCategoriesList {
             id,
             name,
             current,
             total,
             hidden,
-            categoryIconId
+            updatedAt,
+            categoryIconId,
             categoryIcon {
                 name
             }
@@ -110,9 +153,28 @@ export const LOAD_CATEGORIES = gql`
     }
 `
 
+export const LOAD_CATEGORIES = gql`
+    query getCategories($limit: Int!, $offset: Int!){
+        getCategories(results: {limit: $limit, offset: $offset}) {
+            count, 
+            items {
+            id,
+            name,
+            current,
+            total,
+            hidden,
+            updatedAt,
+            categoryIconId,
+            categoryIcon {
+                name
+            }
+        }}
+    }
+`
+
 export const LOAD_CATEGORIES_LIST = gql`
     query {
-        getCategories {
+        getCategoriesList {
             id,
             name,
         }

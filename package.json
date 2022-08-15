@@ -6,33 +6,39 @@
   "dependencies": {
     "@apollo/client": "^3.5.6",
     "@babel/runtime": "^7.16.3",
-    "@craco/craco": "^6.4.3",
     "@testing-library/dom": "^8.11.1",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.11",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^14.1.1",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.30",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.3",
     "@types/react-router-dom": "^5.3.2",
-    "autoprefixer": "^9",
+    "autoprefixer": "^10.4.2",
     "core-js": "^3.19.3",
+    "formik": "^2.2.9",
     "graphql": "^16.1.0",
     "jwt-decode": "^3.1.2",
-    "postcss": "^7",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "moment": "^2.29.3",
+    "moment-timezone": "^0.5.34",
+    "postcss": "^8.4.6",
+    "postcss-cli": "^9.1.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-inlinesvg": "^3.0.0",
     "react-router-dom": "^6.1.1",
-    "react-scripts": "4.0.3",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.2.2",
+    "tailwindcss": "^3.0.23",
     "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -53,5 +59,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@svgr/webpack": "^6.2.1"
+  }
 }
