@@ -32,7 +32,7 @@ const errorLink = onError(({ graphQLErrors }) => {
 const link = from([
   errorLink,
   new BatchHttpLink({
-  uri: "https://ledger-backend.onrender.com/graphql",
+  uri: "https://ledger-backend.onrender.com/api",
   batchMax: 5,
   batchInterval: 20
 })])
